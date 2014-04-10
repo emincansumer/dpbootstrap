@@ -1,0 +1,23 @@
+
+name = Drupal Bootstrap
+description = Drupal theme based on bootstrap framework
+version = 1.0
+core = 7.x
+
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/style.css
+
+scripts[] = js/jquery.min.js
+scripts[] = js/bootstrap.min.js
+scripts[] = js/plugins.js
+scripts[] = js/main.js
+
+regions[header] = Header
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+regions[featured] = Featured
+regions[content] = Content
+regions[sidebar] = Sidebar
+
+regions[footer] = Footer
