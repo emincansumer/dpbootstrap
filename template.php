@@ -97,6 +97,32 @@ function dpbootstrap_form_alter(&$form, &$form_state, $form_id)
 }
 
 /**
+ * @see theme_menu_tree()
+ */
+function dpbootstrap_menu_tree($vars)
+{
+  return '<ul class="list-unstyled">' . $vars['tree'] . '</ul>';
+}
+
+/**
+ * @see theme_menu_link()
+ */
+function dpbootstrap_menu_link($vars)
+{
+
+  $element = $vars['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li class="">' . $output . $sub_menu . "</li>\n";
+
+}
+
+/**
  * Modify navigation tabs (used in page.tpl.php)
  */
 function dpbootstrap_render_nav_tabs() 
