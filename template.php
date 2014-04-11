@@ -95,3 +95,21 @@ function dpbootstrap_form_alter(&$form, &$form_state, $form_id)
     }
 
 }
+
+/**
+ * Modify navigation tabs (used in page.tpl.php)
+ */
+function dpbootstrap_render_nav_tabs() 
+{
+    $output = '';
+
+    if ($primary = menu_primary_local_tasks()) {
+        $output .= '<ul class="nav nav-tabs">' . drupal_render($primary) . '</ul>';
+    }
+
+    if ($secondary = menu_secondary_local_tasks()) {
+        $output .= '<ul class="nav nav-tabs">' . drupal_render($secondary) .'</ul>';
+    }
+
+    return $output;
+}
