@@ -1,4 +1,4 @@
-drupal-bootstrap-theme
+dpbootstrap
 ======================
 
 A Drupal Theme built with Bootstrap
