@@ -1,6 +1,45 @@
 <?php
 
 /**
+ * @see hook_theme()
+ */
+function dpbootstrap_theme($existing, $type, $theme, $path)
+{
+    
+    $hooks['user_login_block'] = array(
+        'template' => 'templates/user-login-block',
+        'render element' => 'form',
+    );
+
+   return $hooks;
+
+}
+
+/**
+ * @see hook_preprocess_HOOK()
+ */
+function dpbootstrap_preprocess_user_login_block(&$vars) {
+
+    // modify fields
+    $vars['form']['name']['#attributes']['class'] = array('form-control');
+    $vars['form']['name']['#attributes']['placeholder'] = array(t('Username'));
+    $vars['form']['pass']['#attributes']['class'] = array('form-control');
+    $vars['form']['pass']['#attributes']['placeholder'] = array(t('Password'));
+    $vars['form']['actions']['submit']['#attributes']['class'] = array('btn-block btn btn-primary');
+    unset($vars['form']['name']['#title']);
+    unset($vars['form']['pass']['#title']);
+    unset($vars['form']['links']);
+    unset($vars['form']['actions']['#theme_wrappers']);
+
+    // render fields
+    $vars['name'] = render($vars['form']['name']);
+    $vars['pass'] = render($vars['form']['pass']);
+    $vars['submit'] = render($vars['form']['actions']['submit']);
+    $vars['rendered'] = drupal_render_children($vars['form']);
+    
+}
+
+/**
  * @see hook_html_head_alter()
  */
 function dpbootstrap_html_head_alter(&$head_elements)
@@ -55,5 +94,4 @@ function dpbootstrap_form_alter(&$form, &$form_state, $form_id)
         $form['#attributes']['class'][] = 'form-inline navbar-form';
     }
 
-    dpm($form);
 }
