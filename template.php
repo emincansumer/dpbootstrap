@@ -92,6 +92,12 @@ function dpbootstrap_form_alter(&$form, &$form_state, $form_id)
     // search form
     if($form_id == 'search_block_form') {
         $form['#attributes']['class'][] = 'form-inline navbar-form';
+    // comment form
+    } elseif($form_id == 'comment_node_article_form') {
+        $form['actions']['preview']['#attributes']['class'][] = 'btn btn-default';
+        $form['subject']['#attributes']['class'][] = 'form-control';
+        $form['author']['name']['#attributes']['class'][] = 'form-control';
+        $form['comment_body']['und'][0]['#attributes']['class'][] = 'form-control';
     }
 
 }

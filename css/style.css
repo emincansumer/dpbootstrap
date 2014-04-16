@@ -1,3 +1,6 @@
 .submitted{margin:10px 0;color:#999;}
 .links.inline li{padding-left: 0;}
+.filter-wrapper .form-item{margin-top: 0;padding-left: 0;}
+.tips{padding-left: 0;}
+.form-actions input{margin-right: 5px;}
 #footer .section{margin-top: 10px;padding-top: 10px;border-top:1px solid #DDD;}
