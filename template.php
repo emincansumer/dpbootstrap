@@ -89,15 +89,26 @@ function dpbootstrap_form_alter(&$form, &$form_state, $form_id)
     $form['actions']['submit']['#attributes']['class'][] = 'btn btn-default';
     $form[$form_id]['#attributes']['class'][] = 'form-control';
 
-    // search form
     if($form_id == 'search_block_form') {
+        // search form
         $form['#attributes']['class'][] = 'form-inline navbar-form';
-    // comment form
     } elseif($form_id == 'comment_node_article_form') {
+        // comment form
         $form['actions']['preview']['#attributes']['class'][] = 'btn btn-default';
         $form['subject']['#attributes']['class'][] = 'form-control';
         $form['author']['name']['#attributes']['class'][] = 'form-control';
         $form['comment_body']['und'][0]['#attributes']['class'][] = 'form-control';
+    } elseif($form_id == 'user_register_form') {
+        // registration form
+        $form['account']['mail']['#attributes']['class'][] = 'form-control';
+        $form['account']['name']['#attributes']['class'][] = 'form-control';
+    } elseif($form_id == 'user_login') {
+        // login form
+        $form['pass']['#attributes']['class'][] = 'form-control';
+        $form['name']['#attributes']['class'][] = 'form-control';
+    } elseif($form_id == 'user_pass') {
+        // request password form
+        $form['name']['#attributes']['class'][] = 'form-control';
     }
 
 }
